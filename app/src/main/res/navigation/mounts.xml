@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mounts"
+    app:startDestination="@id/mountListFragment">
+
+    <fragment
+        android:id="@+id/mountListFragment"
+        android:name="com.example.ffxivproject.ui.mount.MountListFragment"
+        android:label="MountListFragment"/>
+
+</navigation>

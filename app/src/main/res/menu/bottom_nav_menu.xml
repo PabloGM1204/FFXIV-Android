@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/character" android:title="@string/charactersBottomTitle" android:icon="@drawable/diseno_de_personajes" />
+    <item android:id="@+id/mounts" android:title="@string/mountsBottomTitle" android:icon="@drawable/silla_de_caballo" />
+    <item android:id="@+id/armour" android:title="@string/armourBottomTitle" android:icon="@drawable/knight" />
+</menu>

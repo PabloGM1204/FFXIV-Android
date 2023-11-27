@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FFXIVProject</string>
+    <string name="hello_blank_fragment">Fragmento de personaje en blanco</string>
+    <string name="charactersBottomTitle">Characters</string>
+    <string name="mountsBottomTitle">Mounts</string>
+    <string name="armourBottomTitle">Armour</string>
+</resources>

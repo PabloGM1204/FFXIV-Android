@@ -1,0 +1,5 @@
+<resources>
+    <string name="charactersBottomTitle">Personajes</string>
+    <string name="mountsBottomTitle">Monturas</string>
+    <string name="armourBottomTitle">Armadura</string>
+</resources>
