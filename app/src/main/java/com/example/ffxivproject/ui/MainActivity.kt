@@ -1,4 +1,4 @@
-package com.example.ffxivproject
+package com.example.ffxivproject.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,9 +6,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.example.ffxivproject.R
 import com.example.ffxivproject.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -26,9 +29,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.characterListFragment,
                 R.id.armourListFragment,
-                R.id.emoteListFragment,
-                R.id.mountListFragment,
-                R.id.hairListFragment
+                R.id.mountListFragment
             )
         )
         navView.setupWithNavController(navController)

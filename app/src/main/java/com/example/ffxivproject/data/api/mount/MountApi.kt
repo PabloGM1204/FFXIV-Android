@@ -8,6 +8,7 @@ import retrofit2.create
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import javax.inject.Inject
 import javax.inject.Singleton
 
 interface MountApi {
@@ -18,7 +19,7 @@ interface MountApi {
 }
 
 @Singleton
-class MountService {
+class MountService @Inject constructor(){
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://ffxivcollect.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
