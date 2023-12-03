@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import com.example.ffxivproject.R
 import com.example.ffxivproject.databinding.FragmentArmourListBinding
 import com.example.ffxivproject.databinding.FragmentMountListBinding
@@ -30,7 +31,10 @@ class MountListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = MountListAdapter(requireContext())
+        val adapter = MountListAdapter(requireContext()) { view, mount ->
+            val action = MountListFragmentDirections.actionMountListFragmentToMountDetailFragment(mount.id.toString())
+            view.findNavController().navigate(action)
+        }
         val rv = binding.mountList
         rv.adapter = adapter
         viewLifecycleOwner.lifecycleScope.launch {

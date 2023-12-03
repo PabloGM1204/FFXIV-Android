@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mounts"
     app:startDestination="@id/mountListFragment">
 
     <fragment
         android:id="@+id/mountListFragment"
         android:name="com.example.ffxivproject.ui.mount.MountListFragment"
-        android:label="MountListFragment"/>
+        android:label="MountListFragment"
+        tools:layout="@layout/fragment_mount_list">
+        <action
+            android:id="@+id/action_mountListFragment_to_mountDetailFragment"
+            app:destination="@id/mountDetailFragment"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/mountDetailFragment"
+        android:name="com.example.ffxivproject.ui.mount.MountDetailFragment"
+        android:label="fragment_mount_detail"
+        tools:layout="@layout/fragment_mount_detail">
+        <argument
+            android:name="mountID"
+            app:argType="string"/>
+    </fragment>
 </navigation>

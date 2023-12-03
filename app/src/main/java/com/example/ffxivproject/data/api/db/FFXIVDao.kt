@@ -13,4 +13,7 @@ interface FFXIVDao {
 
     @Query("SELECT * FROM mount")
     fun getAll(): Flow<List<MountEntity>>
+
+    @Query("SELECT * FROM mount WHERE id = :mountId")
+    suspend fun getMountById(mountId: String): MountEntity
 }

@@ -14,4 +14,8 @@ class FFXIVDBRepository @Inject constructor(private val mountDao: FFXIVDao) {
     suspend fun insert(listMountEntity: List<MountEntity>){
         mountDao.insert(listMountEntity)
     }
+
+    suspend fun getMounById(mountId: String): MountEntity {
+        return mountDao.getMountById(mountId)
+    }
 }

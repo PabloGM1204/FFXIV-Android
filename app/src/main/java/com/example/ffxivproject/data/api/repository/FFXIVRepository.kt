@@ -1,6 +1,7 @@
 package com.example.ffxivproject.data.api.repository
 
 import com.example.ffxivproject.data.api.db.FFXIVDBRepository
+import com.example.ffxivproject.data.api.db.MountEntity
 import com.example.ffxivproject.data.api.db.asMount
 import com.example.ffxivproject.data.api.mount.MountApiRepository
 import com.example.ffxivproject.data.api.mount.asEntityModel
@@ -23,6 +24,10 @@ class FFXIVRepository @Inject constructor(
             }
             return list
         }
+
+    suspend fun getMountId(mountId: String): MountEntity{
+        return dbRespository.getMounById(mountId)
+    }
 
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {
