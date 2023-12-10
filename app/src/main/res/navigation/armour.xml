@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/armour"
     app:startDestination="@id/armourListFragment">
 
     <fragment
         android:id="@+id/armourListFragment"
         android:name="com.example.ffxivproject.ui.armour.ArmourListFragment"
-        android:label="ArmourListFragment"/>
+        android:label="ArmourListFragment"
+        tools:layout="@layout/fragment_armour_list">
+        <action
+            android:id="@+id/action_armourListFragment_to_armourDetailFragment"
+            app:destination="@id/armourDetailFragment"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/armourDetailFragment"
+        android:name="com.example.ffxivproject.ui.armour.ArmourDetailFragment"
+        android:label="fragment_armour_detail"
+        tools:layout="@layout/fragment_armour_detail">
+        <argument
+            android:name="armourID"
+            app:argType="string"/>
+    </fragment>
 </navigation>

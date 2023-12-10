@@ -6,6 +6,8 @@ import retrofit2.create
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import javax.inject.Inject
+import javax.inject.Singleton
 
 interface ArmourApi {
     @GET("armoires")
@@ -14,7 +16,8 @@ interface ArmourApi {
     suspend fun getDetailArmour(@Path("id") id: Int): ArmourDetailResponse
 }
 
-class ArmourService {
+@Singleton
+class ArmourService @Inject constructor(){
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://ffxivcollect.com/api/")
         .addConverterFactory(GsonConverterFactory.create())

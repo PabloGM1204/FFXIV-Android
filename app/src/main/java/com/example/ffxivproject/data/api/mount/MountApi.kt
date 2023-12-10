@@ -25,5 +25,5 @@ class MountService @Inject constructor(){
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiArmour: MountApi = retrofit.create(MountApi::class.java)
+    val apiMount: MountApi = retrofit.create(MountApi::class.java)
 }

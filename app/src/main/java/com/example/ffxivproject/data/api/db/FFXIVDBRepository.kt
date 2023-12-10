@@ -7,15 +7,25 @@ import javax.inject.Singleton
 
 
 @Singleton
-class FFXIVDBRepository @Inject constructor(private val mountDao: FFXIVDao) {
-    val allMount: Flow<List<MountEntity>> = mountDao.getAll()
+class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
+    val allMount: Flow<List<MountEntity>> = FFXIVDao.getAll()
+    val allArmour: Flow<List<ArmourEntity>> = FFXIVDao.getAllArmour()
 
     @WorkerThread
-    suspend fun insert(listMountEntity: List<MountEntity>){
-        mountDao.insert(listMountEntity)
+    suspend fun insertMount(listMountEntity: List<MountEntity>){
+        FFXIVDao.insertMount(listMountEntity)
+    }
+
+    @WorkerThread
+    suspend fun insertArmour(listArmourEntity: List<ArmourEntity>){
+        FFXIVDao.insertArmour(listArmourEntity)
     }
 
     suspend fun getMounById(mountId: String): MountEntity {
-        return mountDao.getMountById(mountId)
+        return FFXIVDao.getMountById(mountId)
+    }
+
+    suspend fun getArmourById(armourId: String): ArmourEntity {
+        return FFXIVDao.getArmourById(armourId)
     }
 }

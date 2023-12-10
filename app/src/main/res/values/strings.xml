@@ -5,4 +5,5 @@
     <string name="mountsBottomTitle">Mounts</string>
     <string name="armourBottomTitle">Armour</string>
     <string name="mountImgDescription">Mount IMG\n</string>
+    <string name="armourImgDescription">Imagen armadura</string>
 </resources>

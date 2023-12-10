@@ -4,8 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 
-@Database(entities = [MountEntity::class], version = 1)
+@Database(entities = [MountEntity::class, ArmourEntity::class], version = 1)
+@TypeConverters(RecursosListTypeConverter::class)
 abstract class FFXIVDatabase(): RoomDatabase() {
 
     abstract fun ffxivDao():FFXIVDao
