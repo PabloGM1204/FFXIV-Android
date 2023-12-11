@@ -2,6 +2,8 @@ package com.example.ffxivproject.data.api.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.example.ffxivproject.data.api.armour.Recursos
 import com.example.ffxivproject.data.api.repository.Armour
 import com.example.ffxivproject.data.api.repository.Mount
@@ -13,7 +15,9 @@ data class ArmourEntity(
     val name: String,
     val owned: String,
     val icon: String,
-    val sources: String
+    val type: String,
+    val text: String,
+    var selected: Boolean
 )
 
 fun List<ArmourEntity>.asArmour():List<Armour> {
@@ -22,7 +26,9 @@ fun List<ArmourEntity>.asArmour():List<Armour> {
             it.id,
             it.owned,
             it.icon,
-            it.sources
+            it.type,
+            it.text,
+            it.selected
         )
     }
 

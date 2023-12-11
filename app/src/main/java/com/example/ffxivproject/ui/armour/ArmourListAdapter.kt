@@ -1,6 +1,7 @@
 package com.example.ffxivproject.ui.armour
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,11 @@ class ArmourListAdapter(private val context: Context, private val onClick: ((Vie
         fun bind(armour: Armour) {
             binding.armourName.text = armour.name
             binding.armourIcon.load(armour.icon)
+            if(armour.selected){
+                binding.armourSelected.visibility = View.VISIBLE
+            } else {
+                binding.armourSelected.visibility = View.GONE
+            }
             binding.tarjetaBoton.setOnClickListener{
                 onClick(it, armour)
             }

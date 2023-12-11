@@ -22,4 +22,8 @@ class ArmourDetailViewModel @Inject constructor(private val repository: FFXIVRep
             _armourDetail.value = detalles
         }
     }
+
+    suspend fun updateArmour(armourId: String) {
+        repository.updateArmourSelected(armourId)
+    }
 }

@@ -46,6 +46,13 @@ class FFXIVRepository @Inject constructor(
         return dbRespository.getArmourById(armourId)
     }
 
+    suspend fun updateArmourSelected(armourId: String) {
+        withContext(Dispatchers.IO) {
+            // Llamo al método para actulizarlo
+            dbRespository.updateAmour(armourId)
+        }
+    }
+
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {
             val apiMount = apiMountRepository.getAllMount()

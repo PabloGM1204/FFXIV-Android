@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -11,8 +12,11 @@ interface FFXIVDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMount(listMountEntity: List<MountEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertArmour(listArmourEntity: List<ArmourEntity>)
+
+    @Update
+    suspend fun updateArmour(armourActualizar: ArmourEntity)
 
     @Query("SELECT * FROM mount")
     fun getAll(): Flow<List<MountEntity>>

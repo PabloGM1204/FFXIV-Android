@@ -7,5 +7,7 @@ data class Armour(
     val id: Int,
     val owned: String,
     val icon: String,
-    val sources: String
+    val text: String,
+    val type: String,
+    val selected: Boolean
 )

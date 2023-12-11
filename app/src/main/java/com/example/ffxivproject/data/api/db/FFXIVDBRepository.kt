@@ -21,6 +21,16 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
         FFXIVDao.insertArmour(listArmourEntity)
     }
 
+    @WorkerThread
+    suspend fun updateAmour(armourId: String) {
+        // Recojo la armadura de la api
+        val actArmadura = FFXIVDao.getArmourById(armourId)
+        // Le cambio el valor de selected
+        actArmadura.selected = !actArmadura.selected
+        // Actulizo en la BD
+        FFXIVDao.updateArmour(actArmadura)
+    }
+
     suspend fun getMounById(mountId: String): MountEntity {
         return FFXIVDao.getMountById(mountId)
     }
