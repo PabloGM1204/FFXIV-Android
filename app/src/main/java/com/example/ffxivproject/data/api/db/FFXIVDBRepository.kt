@@ -10,6 +10,7 @@ import javax.inject.Singleton
 class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
     val allMount: Flow<List<MountEntity>> = FFXIVDao.getAll()
     val allArmour: Flow<List<ArmourEntity>> = FFXIVDao.getAllArmour()
+    val allCharacter: Flow<List<CharacterEntity>> = FFXIVDao.getAllCharacter()
 
     @WorkerThread
     suspend fun insertMount(listMountEntity: List<MountEntity>){

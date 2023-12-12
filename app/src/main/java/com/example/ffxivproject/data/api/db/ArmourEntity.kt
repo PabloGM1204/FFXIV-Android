@@ -11,7 +11,7 @@ import com.example.ffxivproject.data.api.repository.Mount
 @Entity(tableName = "armour")
 data class ArmourEntity(
     @PrimaryKey
-    val id: Int,
+    val armourId: Int,
     val name: String,
     val owned: String,
     val icon: String,
@@ -23,7 +23,7 @@ data class ArmourEntity(
 fun List<ArmourEntity>.asArmour():List<Armour> {
     return this.map {
         Armour(it.name.replaceFirstChar { c -> c.uppercase() },
-            it.id,
+            it.armourId,
             it.owned,
             it.icon,
             it.type,

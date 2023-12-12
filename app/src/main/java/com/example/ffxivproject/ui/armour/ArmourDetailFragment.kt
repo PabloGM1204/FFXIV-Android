@@ -28,7 +28,7 @@ class ArmourDetailFragment : Fragment() {
         binding.topAppBar.setNavigationOnClickListener(){
             findNavController().popBackStack(R.id.armourListFragment, false)
         }
-        binding.armourId.text = it.id.toString()
+        binding.armourId.text = it.armourId.toString()
         binding.armourName.text = it.name
         binding.armourText.text = it.text
         binding.armourType.text = it.type
@@ -37,7 +37,7 @@ class ArmourDetailFragment : Fragment() {
         binding.isSelected.setOnCheckedChangeListener{ _, _ ->
             // Lanzamos en la corrutina del viewModel el actualizar el dato
             viewModel.viewModelScope.launch {
-                viewModel.updateArmour(it.id.toString())
+                viewModel.updateArmour(it.armourId.toString())
             }
         }
         binding.armourImg.load(it.icon)

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 
-@Database(entities = [MountEntity::class, ArmourEntity::class], version = 1)
+@Database(entities = [MountEntity::class, ArmourEntity::class, CharacterEntity::class, CharacterArmour::class], version = 1)
 abstract class FFXIVDatabase(): RoomDatabase() {
 
     abstract fun ffxivDao():FFXIVDao
