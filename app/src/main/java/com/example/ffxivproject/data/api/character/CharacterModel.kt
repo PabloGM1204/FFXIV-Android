@@ -1,13 +1,27 @@
 package com.example.ffxivproject.data.api.character
 
+import com.example.ffxivproject.data.api.armour.ArmourApiModel
+import com.example.ffxivproject.data.api.armour.asEntityModel
 import com.example.ffxivproject.data.api.db.ArmourEntity
+import com.example.ffxivproject.data.api.db.CharacterEntity
 
 data class CharacterModel(
     val id: Int,
-    val name: String,
-    val armours: MutableList<ArmourEntity> = mutableListOf()
-) {
-    fun addArmour(armour: ArmourEntity) {
-        armours.add(armour)
+    val name: String
+)
+
+fun CharacterEntity.toCharacterModel(): CharacterModel{
+    return CharacterModel(
+        id = this.id,
+        name = this.name
+    )
+}
+
+fun List<CharacterModel>.asEntityModel(): List<CharacterEntity> {
+    return this.map{
+        CharacterEntity(
+            it.id,
+            it.name
+        )
     }
 }

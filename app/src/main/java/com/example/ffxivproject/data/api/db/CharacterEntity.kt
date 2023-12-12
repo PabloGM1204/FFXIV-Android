@@ -36,3 +36,13 @@ data class CharacterArmour(
     val characterId: Int,
     val armourId: Int
 )
+
+fun List<CharacterEntity>.asCharacter():List<Character> {
+    return this.map {
+        Character(
+            it.id,
+            it.name
+        )
+    }
+
+}

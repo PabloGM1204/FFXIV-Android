@@ -7,5 +7,14 @@ import javax.inject.Singleton
 
 @Singleton
 class CharacterRepository @Inject constructor(private val dao: FFXIVDao){
-
+    suspend fun getAllCharacters(): List<CharacterModel>{
+        val charactersFlow = dao.getAllCharacter()
+        val characterList = mutableListOf<CharacterModel>()
+        charactersFlow.collect { characterEntityList ->
+            // Mapear cada CharacterEntity a CharacterModel y agregarlo a la lista
+            characterList.addAll(characterEntityList.map {
+                it.toCharacterModel() })
+        }
+        return characterList
+    }
 }

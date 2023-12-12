@@ -22,6 +22,10 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
         FFXIVDao.insertArmour(listArmourEntity)
     }
 
+    suspend fun insertCharacter(listCharacterEntity: List<CharacterEntity>){
+        FFXIVDao.insertCharacter(listCharacterEntity)
+    }
+
     @WorkerThread
     suspend fun updateAmour(armourId: String) {
         // Recojo la armadura de la api
