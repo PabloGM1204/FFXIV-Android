@@ -15,23 +15,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterListViewModel @Inject constructor(private val repository: FFXIVRepository): ViewModel() {
-    private val _uiState = MutableStateFlow (CharacterListUiState(listOf()))
-    val uiState: StateFlow<CharacterListUiState>
-        get() = _uiState.asStateFlow()
 
-    init {
-        viewModelScope.launch {
-            try {
-                repository.refreshList()
-            } catch (e: IOException) {
-                _uiState.value = _uiState.value.copy(errorMessage = e.message!!)
-            }
-        }
-
-        viewModelScope.launch {
-            repository.character.collect {
-                _uiState.value = CharacterListUiState(it)
-            }
-        }
-    }
 }

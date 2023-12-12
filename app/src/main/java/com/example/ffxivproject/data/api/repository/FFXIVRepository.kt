@@ -7,7 +7,6 @@ import com.example.ffxivproject.data.api.db.ArmourEntity
 import com.example.ffxivproject.data.api.db.FFXIVDBRepository
 import com.example.ffxivproject.data.api.db.MountEntity
 import com.example.ffxivproject.data.api.db.asArmour
-import com.example.ffxivproject.data.api.db.asCharacter
 import com.example.ffxivproject.data.api.db.asMount
 import com.example.ffxivproject.data.api.mount.MountApiRepository
 import com.example.ffxivproject.data.api.mount.asEntityModel
@@ -39,14 +38,6 @@ class FFXIVRepository @Inject constructor(
                 it.asArmour()
             }
             return  list
-        }
-
-    val character: Flow<List<Character>>
-        get(){
-            val list = dbRespository.allCharacter.map {
-                it.asCharacter()
-            }
-            return list
         }
 
     suspend fun getMountId(mountId: String): MountEntity{

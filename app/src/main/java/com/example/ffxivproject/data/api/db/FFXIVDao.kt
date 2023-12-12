@@ -22,10 +22,6 @@ interface FFXIVDao {
     @Query("SELECT * FROM character")
     fun getAllCharacter(): Flow<List<CharacterEntity>>
 
-    @Transaction // Indica que vamos a trabajar con varias tablas y lo hace de manera atomica (Se hace para que funcionen todas o ningunas y asi evitar errores)
-    @Query("SELECT * FROM character")
-    fun getCharacterWithArmours(): List<CharacterWithArmour>
-
     @Query("SELECT * FROM mount")
     fun getAll(): Flow<List<MountEntity>>
 

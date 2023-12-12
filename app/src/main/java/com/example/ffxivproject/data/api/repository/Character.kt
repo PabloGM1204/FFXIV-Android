@@ -1,6 +1,6 @@
 package com.example.ffxivproject.data.api.repository
 
 data class Character(
-    var name: String,
-    var id: Int
+    var id: Int,
+    var name: String
 )
