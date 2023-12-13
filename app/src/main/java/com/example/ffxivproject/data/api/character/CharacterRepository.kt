@@ -1,5 +1,6 @@
 package com.example.ffxivproject.data.api.character
 
+import com.example.ffxivproject.data.api.db.CharacterEntity
 import com.example.ffxivproject.data.api.db.FFXIVDao
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -15,6 +16,16 @@ class CharacterRepository @Inject constructor(private val dao: FFXIVDao){
             characterList.addAll(characterEntityList.map {
                 it.toCharacterModel() })
         }
+
         return characterList
+    }
+
+    suspend fun createCharacter(newCharacter: CharacterModel) {
+        // Recibir el modelo y pasarlo al characterEntity
+        val character  = CharacterEntity(
+            newCharacter.id,
+            newCharacter.name
+        )
+        dao.insertNewCharacter(character)
     }
 }

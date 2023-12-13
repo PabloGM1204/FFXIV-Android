@@ -1,5 +1,6 @@
 package com.example.ffxivproject.ui.character
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ffxivproject.data.api.repository.FFXIVRepository
@@ -27,7 +28,6 @@ class CharacterListViewModel @Inject constructor(private val repository: FFXIVRe
                 _uiState.value = _uiState.value.copy(errorMessage = e.message!!)
             }
         }
-
         viewModelScope.launch {
             repository.character.collect {
                 _uiState.value = CharacterListUiState(it)

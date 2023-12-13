@@ -10,5 +10,8 @@
         android:name="com.example.ffxivproject.ui.character.CharacterListFragment"
         android:label="CharacterListFragment"
         tools:layout="@layout/fragment_character_list">
+        <action
+            android:id="@+id/action_characterListFragment_to_characterDetailFragment"
+            app:destination="@id/armourDetailFragment"/>
     </fragment>
 </navigation>

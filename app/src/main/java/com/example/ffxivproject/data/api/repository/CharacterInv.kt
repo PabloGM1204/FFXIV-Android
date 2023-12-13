@@ -1,6 +1,6 @@
 package com.example.ffxivproject.data.api.repository
 
-data class Character(
+data class CharacterInv(
     var id: Int,
     var name: String
 )

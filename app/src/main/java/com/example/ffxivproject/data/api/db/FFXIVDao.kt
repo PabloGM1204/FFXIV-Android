@@ -17,7 +17,10 @@ interface FFXIVDao {
     suspend fun insertArmour(listArmourEntity: List<ArmourEntity>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertCharacter(listCharacterEntity: List<CharacterEntity>)
+    suspend fun insertCharacter(characterEntity: CharacterEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertNewCharacter(newCharacter: CharacterEntity)
 
     @Update
     suspend fun updateArmour(armourActualizar: ArmourEntity)

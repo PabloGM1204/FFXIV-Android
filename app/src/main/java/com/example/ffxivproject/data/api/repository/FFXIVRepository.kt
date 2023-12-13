@@ -1,10 +1,13 @@
 package com.example.ffxivproject.data.api.repository
 
+import android.util.Log
 import com.example.ffxivproject.data.api.armour.ArmourApiRepository
 import com.example.ffxivproject.data.api.armour.asEntityModel
+import com.example.ffxivproject.data.api.character.CharacterModel
 import com.example.ffxivproject.data.api.character.CharacterRepository
 import com.example.ffxivproject.data.api.character.asEntityModel
 import com.example.ffxivproject.data.api.db.ArmourEntity
+import com.example.ffxivproject.data.api.db.CharacterEntity
 import com.example.ffxivproject.data.api.db.FFXIVDBRepository
 import com.example.ffxivproject.data.api.db.MountEntity
 import com.example.ffxivproject.data.api.db.asArmour
@@ -42,9 +45,10 @@ class FFXIVRepository @Inject constructor(
             return  list
         }
 
-    val character: Flow<List<Character>>
+    val character: Flow<List<CharacterInv>>
         get(){
             val list = dbRespository.allCharacter.map {
+                Log.d("CHARACTER", it.toString())
                 it.asCharacter()
             }
             return  list
@@ -65,14 +69,26 @@ class FFXIVRepository @Inject constructor(
         }
     }
 
+    suspend fun createNewCharacter(newCharacter: CharacterModel){
+        Log.d("Nuevo", newCharacter.name)
+        withContext(Dispatchers.IO) {
+            val character = CharacterEntity(
+                newCharacter.id,
+                newCharacter.name
+            )
+            Log.d("Character", character.toString())
+            dbRespository.insertCharacter(character)
+        }
+    }
+
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {
             val apiMount = apiMountRepository.getAllMount()
             dbRespository.insertMount(apiMount.asEntityModel())
             val apiArmour = apiArmourRepository.getAllArmour()
             dbRespository.insertArmour(apiArmour.asEntityModel())
-            val dbCharacter = characterRepository.getAllCharacters()
-            dbRespository.insertCharacter(dbCharacter.asEntityModel())
+            /*val dbCharacter = characterRepository.getAllCharacters()
+            dbRespository.insertCharacter(dbCharacter.asEntityModel())*/
         }
     }
 }

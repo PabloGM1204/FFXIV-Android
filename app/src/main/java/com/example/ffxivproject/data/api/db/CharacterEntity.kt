@@ -4,12 +4,12 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.example.ffxivproject.data.api.repository.Armour
-import com.example.ffxivproject.data.api.repository.Character
+import com.example.ffxivproject.data.api.repository.CharacterInv
 
 
 @Entity(tableName = "character")
 class CharacterEntity (
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String
 )
@@ -37,9 +37,9 @@ data class CharacterArmour(
     val armourId: Int
 )
 
-fun List<CharacterEntity>.asCharacter():List<Character> {
+fun List<CharacterEntity>.asCharacter():List<CharacterInv> {
     return this.map {
-        Character(
+        CharacterInv(
             it.id,
             it.name
         )
