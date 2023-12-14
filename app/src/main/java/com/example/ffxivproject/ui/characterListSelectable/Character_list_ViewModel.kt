@@ -26,4 +26,8 @@ class Character_list_ViewModel @Inject constructor(private val repository: FFXIV
             }
         }
     }
+
+    fun putCharacterWithArmour(){
+
+    }
 }

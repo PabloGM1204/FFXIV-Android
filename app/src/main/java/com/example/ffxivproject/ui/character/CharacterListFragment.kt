@@ -61,33 +61,4 @@ class CharacterListFragment : Fragment() {
             view.findNavController().navigate(action)
         }
     }
-
-    private fun showCreateListDialog() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Crear Lista")
-
-        // Creo un EditText para que el usuario ingrese el nombre de la lista
-        val input = EditText(requireContext())
-        input.inputType = InputType.TYPE_CLASS_TEXT
-        builder.setView(input)
-
-        // Botón positivo para confirmar y crear la lista
-        builder.setPositiveButton("Crear") { _, _ ->
-            val listName = input.text.toString()
-            val newCharacter = CharacterModel(
-                0,
-                listName
-            )
-            viewModel.viewModelScope.launch {
-                repository.createNewCharacter(newCharacter)
-            }
-            // Muestro un Toast con el nombre de la lista que he creado
-            Toast.makeText(requireContext(), "Lista creada: $listName", Toast.LENGTH_SHORT).show()
-        }
-
-        // Botón negativo para cancelar el diálogo
-        builder.setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }
-
-        builder.show()
-    }
 }

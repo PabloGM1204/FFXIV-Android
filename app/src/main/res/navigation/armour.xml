@@ -20,8 +20,22 @@
         android:name="com.example.ffxivproject.ui.armour.ArmourDetailFragment"
         android:label="fragment_armour_detail"
         tools:layout="@layout/fragment_armour_detail">
+        <action
+            android:id="@+id/action_armourDetailFragment_to_characterListSelectableFragment"
+            app:destination="@id/characterListSelectableFragment"/>
         <argument
             android:name="armourID"
             app:argType="string"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/characterListSelectableFragment"
+        android:name="com.example.ffxivproject.ui.characterListSelectable.Character_list_selectable"
+        android:label="create_character_selectable_fragment"
+        tools:layout="@layout/fragment_character_list_selectable">
+        <argument
+            android:name="armourID"
+            app:argType="string"/>
+    </fragment>
+
 </navigation>

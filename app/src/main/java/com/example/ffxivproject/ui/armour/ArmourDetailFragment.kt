@@ -12,12 +12,14 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.ffxivproject.R
 import com.example.ffxivproject.data.api.db.ArmourEntity
 import com.example.ffxivproject.databinding.FragmentArmourDetailBinding
+import com.example.ffxivproject.ui.character.CharacterListFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.lang.reflect.Array
@@ -66,5 +68,9 @@ class ArmourDetailFragment : Fragment() {
         }
         viewModel.loadArmourDetail(args.armourID)
         viewModel.armourDetail.observe(viewLifecycleOwner, observer)
+        binding.listaButton.setOnClickListener{
+            val action = ArmourDetailFragmentDirections.actionArmourDetailFragmentToCharacterListSelectableFragment(binding.armourId.text.toString())
+            view.findNavController().navigate(action)
+        }
     }
 }
