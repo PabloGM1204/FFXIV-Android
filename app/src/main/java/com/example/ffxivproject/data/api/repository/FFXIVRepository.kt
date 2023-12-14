@@ -62,6 +62,10 @@ class FFXIVRepository @Inject constructor(
         return dbRespository.getArmourById(armourId)
     }
 
+    suspend fun getCharacterId(characterId: String): CharacterEntity {
+        return dbRespository.getCharacterById(characterId)
+    }
+
     suspend fun updateArmourSelected(armourId: String) {
         withContext(Dispatchers.IO) {
             // Llamo al método para actulizarlo
@@ -78,6 +82,12 @@ class FFXIVRepository @Inject constructor(
             )
             Log.d("Character", character.toString())
             dbRespository.insertCharacter(character)
+        }
+    }
+
+    suspend fun deleteCharacter(character: CharacterEntity) {
+        withContext(Dispatchers.IO){
+            dbRespository.deleteCharacter(character)
         }
     }
 

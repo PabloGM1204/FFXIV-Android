@@ -41,8 +41,8 @@ class CharacterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = CharacterListAdapter(requireContext()) {view, characterInv ->
-            val action = CharacterListFragmentDirections.actionCharacterListFragmentToCharacterDetailFragment()
+        val adapter = CharacterListAdapter(requireContext()) {view, character ->
+            val action = CharacterListFragmentDirections.actionCharacterListFragmentToCharacterDetailFragment(character.id.toString())
             view.findNavController().navigate(action)
         }
         val rv = binding.armourList
@@ -55,7 +55,8 @@ class CharacterListFragment : Fragment() {
             }
         }
         binding.createCharacter.setOnClickListener{
-            showCreateListDialog()
+            val action = CharacterListFragmentDirections.actionCharacterListFragmentToCreateCharacterFragment()
+            view.findNavController().navigate(action)
         }
     }
 

@@ -12,6 +12,26 @@
         tools:layout="@layout/fragment_character_list">
         <action
             android:id="@+id/action_characterListFragment_to_characterDetailFragment"
-            app:destination="@id/armourDetailFragment"/>
+            app:destination="@id/characterDetailFragment"/>
+        <action
+            android:id="@+id/action_characterListFragment_to_createCharacterFragment"
+            app:destination="@id/createCharacterFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.ffxivproject.ui.character.CharacterDetailFragment"
+        android:label="fragment_character_detail"
+        tools:layout="@layout/fragment_character_detail">
+        <argument
+            android:name="characterID"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/createCharacterFragment"
+        android:name="com.example.ffxivproject.ui.character.CreateCharacterFragment"
+        android:label="create_character_fragment"
+        tools:layout="@layout/fragment_character_list">
     </fragment>
 </navigation>

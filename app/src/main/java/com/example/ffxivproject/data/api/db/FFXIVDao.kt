@@ -1,6 +1,7 @@
 package com.example.ffxivproject.data.api.db
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -27,6 +28,12 @@ interface FFXIVDao {
 
     @Query("SELECT * FROM character")
     fun getAllCharacter(): Flow<List<CharacterEntity>>
+
+    @Query("SELECT * FROM character WHERE id = :characterId")
+    suspend fun getCharacterById(characterId: String): CharacterEntity
+
+    @Delete
+    suspend fun deleteCharacter(character: CharacterEntity)
 
     @Query("SELECT * FROM mount")
     fun getAll(): Flow<List<MountEntity>>

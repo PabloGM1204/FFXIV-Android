@@ -1,48 +1,45 @@
-package com.example.ffxivproject.ui.armour
+package com.example.ffxivproject.ui.character
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
+import androidx.lifecycle.Observer
 import com.example.ffxivproject.R
 import com.example.ffxivproject.data.api.db.ArmourEntity
+import com.example.ffxivproject.data.api.db.CharacterEntity
 import com.example.ffxivproject.databinding.FragmentArmourDetailBinding
+import com.example.ffxivproject.databinding.FragmentCharacterDetailBinding
+import com.example.ffxivproject.ui.armour.ArmourDetailFragmentArgs
+import com.example.ffxivproject.ui.armour.ArmourDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.lang.reflect.Array
 
 @AndroidEntryPoint
-class ArmourDetailFragment : Fragment() {
-    private lateinit var binding: FragmentArmourDetailBinding
-    private val args: ArmourDetailFragmentArgs by navArgs()
-    private val viewModel: ArmourDetailViewModel by viewModels()
+class CharacterDetailFragment : Fragment() {
+    private lateinit var binding: FragmentCharacterDetailBinding
+    private val args: CharacterDetailFragmentArgs by navArgs()
+    private val viewModel: CharacterDetailViewModel by viewModels()
     //private val listCharacters = viewModel.characterList
 
-    val observer = Observer<ArmourEntity>{
+    val observer = Observer<CharacterEntity>{character ->
         binding.topAppBar.setNavigationOnClickListener(){
-            findNavController().popBackStack(R.id.armourListFragment, false)
+            findNavController().popBackStack(R.id.characterListFragment, false)
         }
-        binding.armourId.text = it.armourId.toString()
-        binding.armourName.text = it.name
-        binding.armourText.text = it.text
-        binding.armourType.text = it.type
-        binding.isSelected.isChecked = it.selected
-        // Para cuando cambie el valor de añadir al inventario
-        binding.isSelected.setOnCheckedChangeListener{ _, _ ->
-            // Lanzamos en la corrutina del viewModel el actualizar el dato
+        binding.characterId.text = character.id.toString()
+        binding.characterName.text = character.name
+        binding.btnDelete.setOnClickListener{
             viewModel.viewModelScope.launch {
-                viewModel.updateArmour(it.armourId.toString())
+                viewModel.deleteCharacter(character)
+                findNavController().popBackStack(R.id.characterListFragment, false)
             }
         }
-        binding.armourImg.load(it.icon)
     }
 
     override fun onCreateView(
@@ -50,7 +47,7 @@ class ArmourDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentArmourDetailBinding.inflate(inflater,
+        binding = FragmentCharacterDetailBinding.inflate(inflater,
             container,
             false
         )
@@ -63,8 +60,8 @@ class ArmourDetailFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        viewModel.loadArmourDetail(args.armourID)
+        viewModel.loadCharacterDetail(args.characterID)
 
-        viewModel.armourDetail.observe(viewLifecycleOwner, observer)
+        viewModel.characterDetail.observe(viewLifecycleOwner, observer)
     }
 }

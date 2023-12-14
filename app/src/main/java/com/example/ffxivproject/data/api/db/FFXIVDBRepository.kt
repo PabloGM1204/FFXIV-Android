@@ -43,4 +43,12 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
     suspend fun getArmourById(armourId: String): ArmourEntity {
         return FFXIVDao.getArmourById(armourId)
     }
+
+    suspend fun getCharacterById(characterId: String): CharacterEntity {
+        return FFXIVDao.getCharacterById(characterId)
+    }
+
+    suspend fun deleteCharacter(character: CharacterEntity){
+        FFXIVDao.deleteCharacter(character)
+    }
 }
