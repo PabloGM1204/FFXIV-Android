@@ -19,6 +19,8 @@ import com.example.ffxivproject.data.api.character.CharacterModel
 import com.example.ffxivproject.data.api.character.CharacterRepository
 import com.example.ffxivproject.data.api.repository.FFXIVRepository
 import com.example.ffxivproject.databinding.FragmentCharacterListBinding
+import com.example.ffxivproject.databinding.FragmentCharacterListSelectableBinding
+import com.example.ffxivproject.ui.characterListSelectable.Character_list_ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -11,7 +11,8 @@ import com.example.ffxivproject.data.api.repository.CharacterInv
 class CharacterEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val name: String
+    val name: String,
+    val selection: Boolean
 )
 @Entity(
     tableName = "character_armour",
@@ -41,7 +42,8 @@ fun List<CharacterEntity>.asCharacter():List<CharacterInv> {
     return this.map {
         CharacterInv(
             it.id,
-            it.name
+            it.name,
+            it.selection
         )
     }
 

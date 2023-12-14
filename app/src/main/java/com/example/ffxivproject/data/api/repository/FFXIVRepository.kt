@@ -78,7 +78,8 @@ class FFXIVRepository @Inject constructor(
         withContext(Dispatchers.IO) {
             val character = CharacterEntity(
                 newCharacter.id,
-                newCharacter.name
+                newCharacter.name,
+                newCharacter.selection
             )
             Log.d("Character", character.toString())
             dbRespository.insertCharacter(character)

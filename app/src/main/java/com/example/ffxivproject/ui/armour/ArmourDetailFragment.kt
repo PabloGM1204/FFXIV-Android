@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -24,7 +27,6 @@ class ArmourDetailFragment : Fragment() {
     private lateinit var binding: FragmentArmourDetailBinding
     private val args: ArmourDetailFragmentArgs by navArgs()
     private val viewModel: ArmourDetailViewModel by viewModels()
-    //private val listCharacters = viewModel.characterList
 
     val observer = Observer<ArmourEntity>{
         binding.topAppBar.setNavigationOnClickListener(){
@@ -62,9 +64,7 @@ class ArmourDetailFragment : Fragment() {
         binding.topAppBar.setNavigationOnClickListener{
             findNavController().popBackStack()
         }
-
         viewModel.loadArmourDetail(args.armourID)
-
         viewModel.armourDetail.observe(viewLifecycleOwner, observer)
     }
 }

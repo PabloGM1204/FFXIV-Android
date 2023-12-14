@@ -12,6 +12,7 @@ import coil.load
 import com.example.ffxivproject.data.api.armour.ArmourListItem
 import com.example.ffxivproject.data.api.repository.Armour
 import com.example.ffxivproject.databinding.ArmourListItemBinding
+import com.example.ffxivproject.databinding.CharacterListSelectableItemBinding
 
 class ArmourListAdapter(private val context: Context, private val onClick: ((View, Armour) -> Unit)): ListAdapter<Armour, ArmourListAdapter.ArmourViewHolder> (ArmourDiffCallBack) {
     inner class ArmourViewHolder(private val binding: ArmourListItemBinding, private val onClick: ((View, Armour) -> Unit)): RecyclerView.ViewHolder(binding.root){

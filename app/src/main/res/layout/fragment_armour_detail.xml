@@ -114,7 +114,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/armour_img" />
 
-    <!-- Añadir a un personaje -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

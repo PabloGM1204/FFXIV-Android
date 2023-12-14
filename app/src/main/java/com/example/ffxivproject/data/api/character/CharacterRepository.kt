@@ -24,7 +24,8 @@ class CharacterRepository @Inject constructor(private val dao: FFXIVDao){
         // Recibir el modelo y pasarlo al characterEntity
         val character  = CharacterEntity(
             newCharacter.id,
-            newCharacter.name
+            newCharacter.name,
+            false
         )
         dao.insertNewCharacter(character)
     }

@@ -48,7 +48,6 @@ class CreateCharacterFragment : Fragment() {
             findNavController().popBackStack()
         }
         binding.changeButton.setOnClickListener{
-            Log.d("Prueba", "Boton click")
             viewModel.createCharacter(binding.nameText.text.toString())
             findNavController().popBackStack()
         }

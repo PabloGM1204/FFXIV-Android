@@ -7,13 +7,15 @@ import com.example.ffxivproject.data.api.db.CharacterEntity
 
 data class CharacterModel(
     val id: Int,
-    val name: String
+    val name: String,
+    val selection: Boolean = false
 )
 
 fun CharacterEntity.toCharacterModel(): CharacterModel{
     return CharacterModel(
         id = this.id,
-        name = this.name
+        name = this.name,
+        selection = this.selection
     )
 }
 
@@ -21,7 +23,8 @@ fun List<CharacterModel>.asEntityModel(): List<CharacterEntity> {
     return this.map{
         CharacterEntity(
             it.id,
-            it.name
+            it.name,
+            it.selection
         )
     }
 }
