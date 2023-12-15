@@ -1,5 +1,6 @@
 package com.example.ffxivproject.data.api.db
 
+import android.util.Log
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -41,7 +42,9 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
     @WorkerThread
     suspend fun updateMount(mountId: String) {
         val actMount = FFXIVDao.getMountById(mountId)
+        Log.d("Verdad", actMount.obteined.toString())
         actMount.obteined = !actMount.obteined
+        Log.d("Verdad", actMount.obteined.toString())
         FFXIVDao.updateMount(actMount)
     }
 

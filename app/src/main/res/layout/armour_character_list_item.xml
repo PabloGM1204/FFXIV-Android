@@ -5,7 +5,7 @@
     android:id="@+id/tarjetaBoton"
     style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="170dp"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
     app:cardBackgroundColor="#FFFFFF">
 
@@ -17,8 +17,8 @@
         <!-- Imagen de la armadura -->
         <ImageView
             android:id="@+id/armour_icon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="86dp"
+            android:layout_height="83dp"
             android:contentDescription="@string/armourImgDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
