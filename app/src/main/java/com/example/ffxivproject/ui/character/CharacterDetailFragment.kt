@@ -37,7 +37,6 @@ class CharacterDetailFragment : Fragment() {
         binding.topAppBar.setNavigationOnClickListener(){
             findNavController().popBackStack(R.id.characterListFragment, false)
         }
-        binding.characterId.text = character.id.toString()
         binding.characterName.text = character.name
         binding.btnDelete.setOnClickListener{
             viewModel.viewModelScope.launch {
@@ -72,6 +71,15 @@ class CharacterDetailFragment : Fragment() {
         viewModel.armours.observe(viewLifecycleOwner) { armours ->
             // Este bloque se ejecutará cada vez que armours cambie
             Log.d("Listas", armours.toString())
+            // Calcular el promedio solo si hay armaduras en la lista
+            if (armours.isNotEmpty()) {
+                // Calcular la suma de los porcentajes eliminando el símbolo de porcentaje
+                val sumPorcentaje = armours.sumByDouble { it.owned.removeSuffix("%").toDouble() }
+                sumPorcentaje / armours.size
+                binding.characterPorcentaje.text = String.format("%.2f", sumPorcentaje)+"%"
+            } else {
+                binding.characterPorcentaje.text = "0.0"
+            }
             adapter.submitList(armours)
         }
 

@@ -71,4 +71,8 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
     suspend fun insertCharacterArmour(listCharacterArmour: List<CharacterArmour>){
         FFXIVDao.insertCharacterArmour(listCharacterArmour)
     }
+
+    suspend fun getCharactersForArmour(armourd: Int): List<CharacterEntity>{
+        return FFXIVDao.getCharactersForArmour(armourd)
+    }
 }

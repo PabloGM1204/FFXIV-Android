@@ -56,4 +56,7 @@ interface FFXIVDao {
     // Obtener todas las armaduras asociadas a un personaje
     @Query("SELECT * FROM armour WHERE armourId IN (SELECT armourId FROM character_armour WHERE characterId = :characterId)")
     suspend fun getArmoursForCharacter(characterId: Int): List<ArmourEntity>
+
+    @Query("SELECT * FROM character WHERE id IN (SELECT characterId FROM character_armour WHERE armourId = :armourId)")
+    suspend fun getCharactersForArmour(armourId: Int): List<CharacterEntity>
 }

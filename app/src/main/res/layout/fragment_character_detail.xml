@@ -16,33 +16,14 @@
         app:navigationIcon="@android:drawable/ic_menu_revert" />
 
 
-    <!-- ID -->
-    <TextView
-        android:id="@+id/label_character_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ID: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
-
-    <TextView
-        android:id="@+id/character_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/label_character_id"
-        app:layout_constraintTop_toTopOf="@id/label_character_id"
-        app:layout_constraintBottom_toBottomOf="@id/label_character_id"
-        tools:text="001"/>
-
     <!-- Nombre -->
     <TextView
         android:id="@+id/label_character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre: "
-        app:layout_constraintTop_toBottomOf="@id/label_character_id"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
 
     <TextView
         android:id="@+id/character_name"
@@ -53,9 +34,30 @@
         app:layout_constraintTop_toTopOf="@id/label_character_name"
         tools:text="Lista" />
 
+    <!-- Porcentaje de Obtencion -->
+
+    <TextView
+        android:id="@+id/label_character_porcentaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Porcentaje de obtención: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_character_name" />
+
     <!-- Botón de Eliminación -->
 
     <!-- Agrega este espacio adicional si es necesario -->
+
+    <TextView
+        android:id="@+id/character_porcentaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toEndOf="@+id/label_character_porcentaje"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        tools:text="20%" />
+
     <ImageButton
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"

@@ -118,6 +118,10 @@ class FFXIVRepository @Inject constructor(
         }
     }
 
+    suspend fun getCharactersForArmour(armourId: Int): List<CharacterEntity> {
+        return dbRespository.getCharactersForArmour(armourId)
+    }
+
     suspend fun refreshList() {
         withContext(Dispatchers.IO) {
             val apiMount = apiMountRepository.getAllMount()
