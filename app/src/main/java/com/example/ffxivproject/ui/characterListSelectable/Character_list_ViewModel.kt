@@ -2,6 +2,7 @@ package com.example.ffxivproject.ui.characterListSelectable
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ffxivproject.data.api.repository.CharacterInv
 import com.example.ffxivproject.data.api.repository.FFXIVRepository
 import com.example.ffxivproject.ui.armour.ArmourListUiState
 import com.example.ffxivproject.ui.character.CharacterListUiState
@@ -27,7 +28,9 @@ class Character_list_ViewModel @Inject constructor(private val repository: FFXIV
         }
     }
 
-    fun putCharacterWithArmour(){
-
+    fun putCharacterWithArmour(armourId: String, lista: List<CharacterInv>){
+        viewModelScope.launch {
+            repository.insertCharacterArmour(armourId, lista)
+        }
     }
 }

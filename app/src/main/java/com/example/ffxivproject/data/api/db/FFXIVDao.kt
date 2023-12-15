@@ -46,4 +46,11 @@ interface FFXIVDao {
 
     @Query("SELECT * FROM armour WHERE armourId = :armourId")
     suspend fun getArmourById(armourId: String): ArmourEntity
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCharacterArmour(listCharacterArmour: List<CharacterArmour>)
+
+    // Obtener todas las armaduras asociadas a un personaje
+    @Query("SELECT * FROM armour WHERE armourId IN (SELECT armourId FROM character_armour WHERE characterId = :characterId)")
+    suspend fun getArmoursForCharacter(characterId: Int): List<ArmourEntity>
 }

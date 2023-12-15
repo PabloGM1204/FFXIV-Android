@@ -70,8 +70,10 @@ class Character_list_selectable : Fragment() {
         }
 
         binding.confirmButton.setOnClickListener {
-            Log.d("Pruebas", adapter.listasSeleccionadas.toString())
-            Log.d("CharacterTop", args.armourID.toString())
+            Log.d("CharacterTop", args.armourID)
+            val lista = adapter.currentList.filter { it.selection }
+            Log.d("Filtradas", lista.toString())
+            viewModel.putCharacterWithArmour(args.armourID, lista)
             findNavController().popBackStack()
         }
     }

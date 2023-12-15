@@ -32,7 +32,7 @@ class CharacterEntity (
     ]
 )
 data class CharacterArmour(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val characterId: Int,
     val armourId: Int

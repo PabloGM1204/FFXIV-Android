@@ -7,6 +7,7 @@ import com.example.ffxivproject.data.api.character.CharacterModel
 import com.example.ffxivproject.data.api.character.CharacterRepository
 import com.example.ffxivproject.data.api.character.asEntityModel
 import com.example.ffxivproject.data.api.db.ArmourEntity
+import com.example.ffxivproject.data.api.db.CharacterArmour
 import com.example.ffxivproject.data.api.db.CharacterEntity
 import com.example.ffxivproject.data.api.db.FFXIVDBRepository
 import com.example.ffxivproject.data.api.db.MountEntity
@@ -70,6 +71,19 @@ class FFXIVRepository @Inject constructor(
         withContext(Dispatchers.IO) {
             // Llamo al método para actulizarlo
             dbRespository.updateAmour(armourId)
+        }
+    }
+
+    suspend fun insertCharacterArmour(armourId: String, listCharacter: List<CharacterInv>){
+        withContext(Dispatchers.IO) {
+            val characterArmour = listCharacter.map {
+                CharacterArmour(
+                    0,
+                    it.id,
+                    armourId.toInt()
+                )
+            }
+            dbRespository.insertCharacterArmour(characterArmour)
         }
     }
 

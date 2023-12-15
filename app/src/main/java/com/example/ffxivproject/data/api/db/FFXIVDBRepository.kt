@@ -12,6 +12,8 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
     val allArmour: Flow<List<ArmourEntity>> = FFXIVDao.getAllArmour()
     val allCharacter: Flow<List<CharacterEntity>> = FFXIVDao.getAllCharacter()
 
+
+
     @WorkerThread
     suspend fun insertMount(listMountEntity: List<MountEntity>){
         FFXIVDao.insertMount(listMountEntity)
@@ -50,5 +52,9 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
 
     suspend fun deleteCharacter(character: CharacterEntity){
         FFXIVDao.deleteCharacter(character)
+    }
+
+    suspend fun insertCharacterArmour(listCharacterArmour: List<CharacterArmour>){
+        FFXIVDao.insertCharacterArmour(listCharacterArmour)
     }
 }
