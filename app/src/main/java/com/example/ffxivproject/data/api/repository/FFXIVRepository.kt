@@ -67,6 +67,11 @@ class FFXIVRepository @Inject constructor(
         return dbRespository.getCharacterById(characterId)
     }
 
+    suspend fun getCharacterWithArmours(characterId: String): List<Armour> {
+        val armourEntities = dbRespository.getCharacterWithArmours(characterId)
+        return armourEntities.asArmour()
+    }
+
     suspend fun updateArmourSelected(armourId: String) {
         withContext(Dispatchers.IO) {
             // Llamo al método para actulizarlo

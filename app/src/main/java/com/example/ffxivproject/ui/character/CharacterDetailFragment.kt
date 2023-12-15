@@ -1,6 +1,7 @@
 package com.example.ffxivproject.ui.character
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.example.ffxivproject.databinding.FragmentArmourDetailBinding
 import com.example.ffxivproject.databinding.FragmentCharacterDetailBinding
 import com.example.ffxivproject.ui.armour.ArmourDetailFragmentArgs
 import com.example.ffxivproject.ui.armour.ArmourDetailViewModel
+import com.example.ffxivproject.ui.characterListSelectable.Character_list_Adapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -61,6 +63,16 @@ class CharacterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.topAppBar.setNavigationOnClickListener{
             findNavController().popBackStack()
+        }
+
+        val adapter = ArmourListAdapter(requireContext())
+        val rv = binding.armourList
+        rv.adapter = adapter
+
+        viewModel.armours.observe(viewLifecycleOwner) { armours ->
+            // Este bloque se ejecutará cada vez que armours cambie
+            Log.d("Listas", armours.toString())
+            adapter.submitList(armours)
         }
 
         viewModel.loadCharacterDetail(args.characterID)
