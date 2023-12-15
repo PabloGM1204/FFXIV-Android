@@ -23,4 +23,10 @@ class MountDetailViewModel @Inject constructor(private val repository: FFXIVRepo
             _mountDetail.value = detalles
         }
     }
+
+    fun updateMount(mountId: String){
+        viewModelScope.launch {
+            repository.updateMount(mountId)
+        }
+    }
 }

@@ -43,7 +43,8 @@ fun List<MountApiModel>.asEntityModel(): List<MountEntity> {
             it.id,
             it.name,
             it.description,
-            it.image
+            it.image,
+            false
         )
     }
 }

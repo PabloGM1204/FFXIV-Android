@@ -10,7 +10,8 @@ data class MountEntity(
     val id:Int,
     val name:String,
     val description:String,
-    val image: String
+    val image: String,
+    var obteined: Boolean
 )
 
 fun List<MountEntity>.asMount():List<Mount> {
@@ -18,7 +19,8 @@ fun List<MountEntity>.asMount():List<Mount> {
         Mount(it.name.replaceFirstChar { c -> c.uppercase() },
             it.id,
             it.description,
-            it.image)
+            it.image,
+            it.obteined)
     }
 
 }

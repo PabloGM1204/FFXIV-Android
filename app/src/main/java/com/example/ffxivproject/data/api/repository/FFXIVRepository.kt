@@ -79,6 +79,13 @@ class FFXIVRepository @Inject constructor(
         }
     }
 
+    suspend fun updateMount(mountId: String){
+        withContext(Dispatchers.IO) {
+            // Llamo al método para actulizarlo
+            dbRespository.updateMount(mountId)
+        }
+    }
+
     suspend fun insertCharacterArmour(armourId: String, listCharacter: List<CharacterInv>){
         withContext(Dispatchers.IO) {
             val characterArmour = listCharacter.map {

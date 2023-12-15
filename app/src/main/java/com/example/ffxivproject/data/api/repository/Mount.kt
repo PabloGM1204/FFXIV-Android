@@ -4,5 +4,6 @@ data class Mount(
     val name: String,
     val id: Int,
     val description: String,
-    val image: String
+    val image: String,
+    var obteined: Boolean
 )

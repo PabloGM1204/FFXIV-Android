@@ -1,6 +1,7 @@
 package com.example.ffxivproject.ui.character
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ class ArmourListAdapter (private val context: Context): ListAdapter<Armour, Armo
         fun bind(armour: Armour) {
             binding.armourName.text = armour.name
             binding.armourIcon.load(armour.icon)
+            Log.d("Imagen", armour.icon)
         }
     }
 

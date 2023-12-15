@@ -19,6 +19,11 @@ class MountListAdapter(private val context: Context, private val onClick: ((View
             binding.tarjetaBoton.setOnClickListener{
                 onClick(it, mount)
             }
+            if(mount.obteined){
+                binding.mountSelected.visibility = View.VISIBLE
+            } else {
+                binding.mountSelected.visibility = View.GONE
+            }
         }
     }
 

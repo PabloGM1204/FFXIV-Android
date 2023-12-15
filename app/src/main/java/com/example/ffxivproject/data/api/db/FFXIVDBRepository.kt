@@ -38,6 +38,13 @@ class FFXIVDBRepository @Inject constructor(private val FFXIVDao: FFXIVDao) {
         FFXIVDao.updateArmour(actArmadura)
     }
 
+    @WorkerThread
+    suspend fun updateMount(mountId: String) {
+        val actMount = FFXIVDao.getMountById(mountId)
+        actMount.obteined = !actMount.obteined
+        FFXIVDao.updateMount(actMount)
+    }
+
     suspend fun getMounById(mountId: String): MountEntity {
         return FFXIVDao.getMountById(mountId)
     }

@@ -26,6 +26,9 @@ interface FFXIVDao {
     @Update
     suspend fun updateArmour(armourActualizar: ArmourEntity)
 
+    @Update
+    suspend fun updateMount(mountActualizar: MountEntity)
+
     @Query("SELECT * FROM character")
     fun getAllCharacter(): Flow<List<CharacterEntity>>
 
