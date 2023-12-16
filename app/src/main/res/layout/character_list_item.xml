@@ -21,7 +21,7 @@
             android:id="@+id/textViewCharacterNameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre:"
+            android:text="@string/nombre"
             android:textColor="@android:color/darker_gray"
             android:textSize="16sp" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/textViewCharacterIdLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo:"
+            android:text="@string/tipo"
             android:textColor="@android:color/darker_gray"
             android:textSize="16sp" />
 

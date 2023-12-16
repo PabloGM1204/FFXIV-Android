@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FFXIVProject</string>
+    <string name="charactersBottomTitle">Personaggi</string>
+    <string name="mountsBottomTitle">Cavalcature</string>
+    <string name="armourBottomTitle">Armatura</string>
+    <string name="mountImgDescription">Immagine montatura\n</string>
+    <string name="armourImgDescription">Immagine armatura</string>
+    <string name="armourIMGSelected">Armatura selezionata</string>
+    <string name="wizard">Mago</string>
+    <string name="tank">Serbatoio</string>
+    <string name="healer">Guaritore</string>
+    <string name="damage">Assassino</string>
+    <string name="nombre">Nome:</string>
+    <string name="tipo">Tipo:</string>
+    <string name="nombreSiPunto">Nome</string>
+    <string name="texto">Testo</string>
+    <string name="typo">Tipo</string>
+    <string name="obtenido">Ottenuto</string>
+    <string name="a_adir_a_las_listas">Aggiungi alle liste</string>
+    <string name="porcentaje_de_obtenci_n">Percentuale di ottenimento</string>
+    <string name="armaduras_seleccionadas">Armature selezionate</string>
+    <string name="selecciona_las_listas_en_las_que_guardar_el_objeto">Seleziona le liste in cui salvare l oggetto</string>
+    <string name="guardar">Salva</string>
+    <string name="selecciona_una_opci_n">Seleziona un opzione:</string>
+    <string name="aceptar_cambios">Accetta le modifiche</string>
+    <string name="descripci_n">Descrizione</string>
+</resources>

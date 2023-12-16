@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FFXIVProject</string>
-    <string name="hello_blank_fragment">Fragmento de personaje en blanco</string>
     <string name="charactersBottomTitle">Characters</string>
     <string name="mountsBottomTitle">Mounts</string>
     <string name="armourBottomTitle">Armour</string>
@@ -11,4 +10,18 @@
     <string name="tank">Tank</string>
     <string name="healer">Healer</string>
     <string name="damage">Damage</string>
+    <string name="nombre">Name:</string>
+    <string name="tipo">Kind:</string>
+    <string name="nombreSiPunto">Name</string>
+    <string name="texto">Text</string>
+    <string name="typo">Kind</string>
+    <string name="obtenido">Owned</string>
+    <string name="a_adir_a_las_listas">Add to the lists</string>
+    <string name="porcentaje_de_obtenci_n">Obtainment Percentage</string>
+    <string name="armaduras_seleccionadas">Selected armours</string>
+    <string name="selecciona_las_listas_en_las_que_guardar_el_objeto">Select the lists to save the object</string>
+    <string name="guardar">Save</string>
+    <string name="selecciona_una_opci_n">Select one option:</string>
+    <string name="aceptar_cambios">Save changes</string>
+    <string name="descripci_n">Description</string>
 </resources>

@@ -9,4 +9,18 @@
     <string name="tank">Tanque</string>
     <string name="healer">Curandero</string>
     <string name="damage">Asesino</string>
+    <string name="nombre">Nombre:</string>
+    <string name="tipo">Tipo:</string>
+    <string name="nombreSiPunto">Nombre</string>
+    <string name="texto">Texto</string>
+    <string name="typo">Tipo</string>
+    <string name="obtenido">Obtenido</string>
+    <string name="a_adir_a_las_listas">Añadir a las listas</string>
+    <string name="porcentaje_de_obtenci_n">Porcentaje de obtención</string>
+    <string name="armaduras_seleccionadas">Armaduras seleccionadas</string>
+    <string name="selecciona_las_listas_en_las_que_guardar_el_objeto">Selecciona las listas en las que guardar el objeto</string>
+    <string name="guardar">Guardar</string>
+    <string name="selecciona_una_opci_n">Selecciona una opción:</string>
+    <string name="aceptar_cambios">Aceptar cambios</string>
+    <string name="descripci_n">Descripción</string>
 </resources>

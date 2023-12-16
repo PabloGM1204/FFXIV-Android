@@ -19,7 +19,6 @@
             android:id="@+id/armour_icon"
             android:layout_width="86dp"
             android:layout_height="83dp"
-            android:contentDescription="@string/armourImgDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
