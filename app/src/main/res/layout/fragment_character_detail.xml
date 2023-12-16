@@ -31,63 +31,55 @@
 
     <!-- Nombre -->
 
-    <LinearLayout
-        android:id="@+id/layoutName"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/label_character_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="14dp"
+        android:text="Nombre"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
 
-        <TextView
-            android:id="@+id/label_character_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre: "
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/character_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Lista" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/character_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_character_name"
+        tools:text="Lista" />
 
     <!-- Porcentaje de Obtencion -->
 
-    <LinearLayout
-        android:id="@+id/layoutPercentage"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/label_character_porcentaje"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
+        android:text="Porcentaje de obtención"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutName">
+        app:layout_constraintTop_toBottomOf="@+id/character_name" />
 
-        <TextView
-            android:id="@+id/label_character_porcentaje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Porcentaje de obtención: "
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/character_porcentaje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="20%" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/character_porcentaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_character_porcentaje"
+        tools:text="20%" />
 
     <!-- Botón de Eliminación -->
 
@@ -95,47 +87,47 @@
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Eliminar Lista"
         android:src="@android:drawable/ic_menu_delete"
-        app:tint="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
-
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        app:tint="#FF0000" />
 
     <!-- Imagen del tipo -->
-
 
     <ImageView
         android:id="@+id/image_tipo"
         android:layout_width="44dp"
         android:layout_height="60dp"
-        android:layout_marginStart="270dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topAppBar"
         tools:srcCompat="@drawable/shield" />
-
-    <!-- Lista de las armaduras seleccionadas -->
 
     <TextView
         android:id="@+id/label_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="14dp"
         android:text="Armaduras seleccionadas"
-        android:textSize="18sp"
         android:textColor="@android:color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
+        app:layout_constraintTop_toBottomOf="@+id/character_porcentaje" />
+
+    <!-- Lista de las armaduras seleccionadas -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/armour_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="14dp"
         android:paddingHorizontal="8dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
