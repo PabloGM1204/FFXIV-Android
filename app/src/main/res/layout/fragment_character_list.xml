@@ -26,13 +26,13 @@
     <!-- FloatingActionButton -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/create_character"
+        style="@style/AppTheme.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="center"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/add_circle_fill0_wght400_grad0_opsz24"
         app:layout_anchor="@id/top_toolbar"
-        app:layout_anchorGravity="bottom|end"/>
+        app:srcCompat="@drawable/add_circle_fill0_wght400_grad0_opsz24" />
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="90dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingHorizontal="8dp"/>

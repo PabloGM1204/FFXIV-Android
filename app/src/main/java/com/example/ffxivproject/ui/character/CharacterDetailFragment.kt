@@ -34,14 +34,11 @@ class CharacterDetailFragment : Fragment() {
             findNavController().popBackStack(R.id.characterListFragment, false)
         }
         binding.characterName.text = character.name
-        if(character.kind == "Wizard"){
-            binding.imageTipo.load(R.drawable.wizard)
-        } else if (character.kind == "Damage") {
-            binding.imageTipo.load(R.drawable.sword)
-        } else if (character.kind == "Healer") {
-            binding.imageTipo.load(R.drawable.regeneration)
-        }else if (character.kind == "Tank") {
-            binding.imageTipo.load(R.drawable.shield)
+        when(character.kind){
+            "Wizard" -> binding.imageTipo.load(R.drawable.wizard)
+            "Damage" -> binding.imageTipo.load(R.drawable.sword)
+            "Healer" -> binding.imageTipo.load(R.drawable.regeneration)
+            "Tank" -> binding.imageTipo.load(R.drawable.shield)
         }
         binding.btnDelete.setOnClickListener{
             viewModel.viewModelScope.launch {

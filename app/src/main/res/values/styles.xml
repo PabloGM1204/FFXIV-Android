@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Otros estilos de la aplicación aquí -->
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="floatingActionButtonStyle">@style/AppTheme.FloatingActionButton</item>
+    </style>
+
+    <style name="AppTheme.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:backgroundTint">#71a0c5</item>
+    </style>
+
+</resources>

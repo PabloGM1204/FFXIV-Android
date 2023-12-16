@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.ffxivproject.R
 import com.example.ffxivproject.data.api.repository.CharacterInv
 import com.example.ffxivproject.databinding.CharacterListItemBinding
 import com.example.ffxivproject.databinding.CharacterListSelectableItemBinding
@@ -20,6 +22,12 @@ class Character_list_Adapter (private val context: Context): ListAdapter<Charact
     inner class CharacterListViewHolder(private val binding: CharacterListSelectableItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(character: CharacterInv) {
             binding.characterName.text = character.name
+            when(character.kind){
+                "Wizard" -> binding.kindImg.load(R.drawable.wizard)
+                "Damage" -> binding.kindImg.load(R.drawable.sword)
+                "Healer" -> binding.kindImg.load(R.drawable.regeneration)
+                "Tank" -> binding.kindImg.load(R.drawable.shield)
+            }
             binding.checkBox.isChecked = character.selection
             binding.checkBox.setOnClickListener {
                 character.selection = binding.checkBox.isChecked
