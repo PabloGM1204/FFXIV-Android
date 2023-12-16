@@ -20,67 +20,90 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <!-- ID -->
+
     <TextView
         android:id="@+id/label_armour_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID: "
-        app:layout_constraintTop_toBottomOf="@id/armour_img"
+        android:layout_marginTop="14dp"
+        android:text="ID"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/armour_img" />
 
     <TextView
         android:id="@+id/armour_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/label_armour_id"
-        app:layout_constraintTop_toTopOf="@id/label_armour_id"
-        app:layout_constraintBottom_toBottomOf="@id/label_armour_id"
-        tools:text="001"/>
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_armour_id"
+        tools:text="001" />
 
     <!-- Nombre -->
+
     <TextView
         android:id="@+id/label_armour_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre: "
-        app:layout_constraintTop_toBottomOf="@id/label_armour_id"
+        android:layout_marginTop="14dp"
+        android:text="Nombre"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/armour_id" />
 
     <TextView
         android:id="@+id/armour_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/label_armour_name"
-        app:layout_constraintTop_toTopOf="@id/label_armour_name"
-        app:layout_constraintBottom_toBottomOf="@id/label_armour_name"
-        tools:text="Armadura"/>
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_armour_name"
+        tools:text="Armadura" />
 
     <!-- Texto -->
+
     <TextView
         android:id="@+id/label_armour_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Texto: "
-        app:layout_constraintTop_toBottomOf="@id/label_armour_name"
+        android:layout_marginTop="14dp"
+        android:text="Texto"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/armour_name" />
 
     <TextView
         android:id="@+id/armour_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/label_armour_text"
-        app:layout_constraintTop_toTopOf="@id/label_armour_text"
-        app:layout_constraintBottom_toBottomOf="@id/label_armour_text"
-        tools:text="Texto de armadura to wapa"/>
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_armour_text"
+        tools:text="Texto de armadura to wapa" />
 
     <!-- Type -->
 
@@ -88,18 +111,26 @@
         android:id="@+id/label_armour_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Typo: "
-        app:layout_constraintTop_toBottomOf="@id/armour_text"
+        android:layout_marginTop="14dp"
+        android:text="Typo"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/armour_text" />
 
     <TextView
         android:id="@+id/armour_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/label_armour_type"
-        app:layout_constraintStart_toEndOf="@id/label_armour_type"
-        app:layout_constraintTop_toTopOf="@id/label_armour_type"
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_armour_type"
         tools:text="Typo de armadura to wapa" />
 
     <!-- Registrado -->
@@ -108,11 +139,11 @@
         android:id="@+id/is_selected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="172dp"
-        android:text="Registrado"
+        android:layout_marginTop="14dp"
+        android:text="Obtenido"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/armour_img" />
+        app:layout_constraintTop_toBottomOf="@+id/armour_type" />
 
     <!-- Añadir a una lista -->
 
