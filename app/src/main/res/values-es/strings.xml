@@ -5,4 +5,8 @@
     <string name="mountImgDescription">Mount IMG\n</string>
     <string name="armourImgDescription">Imagen armadura</string>
     <string name="armourIMGSelected">armadura seleccionada</string>
+    <string name="wizard">Mago</string>
+    <string name="tank">Tanque</string>
+    <string name="healer">Curandero</string>
+    <string name="damage">Asesino</string>
 </resources>

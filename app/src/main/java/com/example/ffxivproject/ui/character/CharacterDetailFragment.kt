@@ -1,28 +1,24 @@
 package com.example.ffxivproject.ui.character
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.example.ffxivproject.R
-import com.example.ffxivproject.data.api.db.ArmourEntity
 import com.example.ffxivproject.data.api.db.CharacterEntity
-import com.example.ffxivproject.databinding.FragmentArmourDetailBinding
+import com.example.ffxivproject.data.api.repository.Armour
 import com.example.ffxivproject.databinding.FragmentCharacterDetailBinding
-import com.example.ffxivproject.ui.armour.ArmourDetailFragmentArgs
-import com.example.ffxivproject.ui.armour.ArmourDetailViewModel
-import com.example.ffxivproject.ui.characterListSelectable.Character_list_Adapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -31,19 +27,29 @@ class CharacterDetailFragment : Fragment() {
     private lateinit var binding: FragmentCharacterDetailBinding
     private val args: CharacterDetailFragmentArgs by navArgs()
     private val viewModel: CharacterDetailViewModel by viewModels()
-    //private val listCharacters = viewModel.characterList
+    private var nombresArmours: List<Armour> = mutableListOf()
 
     val observer = Observer<CharacterEntity>{character ->
         binding.topAppBar.setNavigationOnClickListener(){
             findNavController().popBackStack(R.id.characterListFragment, false)
         }
         binding.characterName.text = character.name
+        if(character.kind == "Wizard"){
+            binding.imageTipo.load(R.drawable.wizard)
+        } else if (character.kind == "Damage") {
+            binding.imageTipo.load(R.drawable.sword)
+        } else if (character.kind == "Healer") {
+            binding.imageTipo.load(R.drawable.regeneration)
+        }else if (character.kind == "Tank") {
+            binding.imageTipo.load(R.drawable.shield)
+        }
         binding.btnDelete.setOnClickListener{
             viewModel.viewModelScope.launch {
                 viewModel.deleteCharacter(character)
                 findNavController().popBackStack(R.id.characterListFragment, false)
             }
         }
+        Log.d("Kind", character.kind)
     }
 
     override fun onCreateView(
@@ -63,7 +69,6 @@ class CharacterDetailFragment : Fragment() {
         binding.topAppBar.setNavigationOnClickListener{
             findNavController().popBackStack()
         }
-
         val adapter = ArmourListAdapter(requireContext())
         val rv = binding.armourList
         rv.adapter = adapter
@@ -73,6 +78,7 @@ class CharacterDetailFragment : Fragment() {
             Log.d("Listas", armours.toString())
             // Calcular el promedio solo si hay armaduras en la lista
             if (armours.isNotEmpty()) {
+                nombresArmours = armours
                 // Calcular la suma de los porcentajes eliminando el símbolo de porcentaje
                 val sumPorcentaje = armours.sumByDouble { it.owned.removeSuffix("%").toDouble() }
                 sumPorcentaje / armours.size
@@ -83,8 +89,30 @@ class CharacterDetailFragment : Fragment() {
             adapter.submitList(armours)
         }
 
+        viewModel.characterDetail.observe(viewLifecycleOwner) { character ->
+            binding.btnShare.setOnClickListener{
+                if (nombresArmours != null) {
+                    onShareItem(character, nombresArmours)
+                } else {
+                    Toast.makeText(context, "Debe tener armaduras seleccionadas", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         viewModel.loadCharacterDetail(args.characterID)
 
         viewModel.characterDetail.observe(viewLifecycleOwner, observer)
+    }
+
+    fun onShareItem(character: CharacterEntity, listArmour: List<Armour>){
+        val armorNames = listArmour.joinToString(separator = ", ") { it.name }
+        val shareText = "${character.name} ${character.kind}: $armorNames"
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(intent, null)
+        startActivity(shareIntent)
     }
 }

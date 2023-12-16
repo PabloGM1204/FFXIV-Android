@@ -14,11 +14,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterCreateViewModel @Inject constructor(private val repository: FFXIVRepository): ViewModel() {
-    fun createCharacter(characterName: String){
+    fun createCharacter(characterName: String, characterKind: String){
         viewModelScope.launch {
             val newCharacter = CharacterModel(
                 0,
-                characterName
+                characterName,
+                false,
+                characterKind
             )
             repository.createNewCharacter(newCharacter)
         }

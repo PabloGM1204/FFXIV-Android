@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.ffxivproject.data.api.db.ArmourEntity
 import com.example.ffxivproject.data.api.db.CharacterEntity
@@ -22,6 +23,11 @@ class CharacterDetailViewModel @Inject constructor(private val repository: FFXIV
 
     private val _armours = MutableLiveData<List<Armour>>()
     val armours: LiveData<List<Armour>> = _armours
+    val nombresArmours: LiveData<List<String>> = armours.map { armoursList ->
+        armoursList.map { armour ->
+            armour.name // Reemplaza "nombre" con el nombre del campo que deseas obtener
+        }
+    }
 
     fun loadCharacterDetail(characterId: String){
         viewModelScope.launch {

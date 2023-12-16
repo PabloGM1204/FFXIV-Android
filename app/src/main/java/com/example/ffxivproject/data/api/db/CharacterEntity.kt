@@ -12,7 +12,8 @@ class CharacterEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val selection: Boolean
+    val selection: Boolean,
+    val kind: String
 )
 @Entity(
     tableName = "character_armour",
@@ -43,7 +44,8 @@ fun List<CharacterEntity>.asCharacter():List<CharacterInv> {
         CharacterInv(
             it.id,
             it.name,
-            it.selection
+            it.selection,
+            it.kind
         )
     }
 

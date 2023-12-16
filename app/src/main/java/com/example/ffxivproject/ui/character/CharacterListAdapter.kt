@@ -1,6 +1,7 @@
 package com.example.ffxivproject.ui.character
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.ffxivproject.R
 import com.example.ffxivproject.data.api.repository.Armour
 import com.example.ffxivproject.data.api.repository.CharacterInv
 import com.example.ffxivproject.databinding.ArmourListItemBinding
@@ -19,9 +21,15 @@ class CharacterListAdapter (private val context: Context, private val onClick: (
     inner class CharacterViewHolder(private val binding: CharacterListItemBinding, private val onClick: ((View, CharacterInv) -> Unit)): RecyclerView.ViewHolder(binding.root){
         fun bind(character: CharacterInv) {
             binding.characterName.text = character.name
-            binding.characterId.text = character.id.toString()
+            binding.characterTipo.text = character.kind
             binding.tarjetaBoton.setOnClickListener{
                 onClick(it, character)
+            }
+            when(character.kind){
+                "Wizard" -> binding.kindImg.load(R.drawable.wizard)
+                "Damage" -> binding.kindImg.load(R.drawable.sword)
+                "Healer" -> binding.kindImg.load(R.drawable.regeneration)
+                "Tank" -> binding.kindImg.load(R.drawable.shield)
             }
         }
     }
@@ -42,4 +50,5 @@ class CharacterListAdapter (private val context: Context, private val onClick: (
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) = holder.bind(getItem(position))
+
 }
